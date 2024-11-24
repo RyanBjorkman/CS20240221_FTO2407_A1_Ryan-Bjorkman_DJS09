@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var reviewTotalDisplay = document.querySelector('#reviews');
         var returningUserDisplay = document.querySelector('#returning-user');
         var userNameDisplay = document.querySelector('#user');
+        var isOpen;
         var reviews = [
             {
                 name: 'Sheia',
@@ -28,8 +29,10 @@ document.addEventListener('DOMContentLoaded', function () {
             },
         ];
         var you = {
-            userName: 'Bobby',
+            firstName: 'James',
+            lastName: 'Franco',
             isReturning: true,
+            age: 33,
         };
         function showReviewTotal(value, reviewer, isLoyalty) {
             var iconDisplay = isLoyalty ? '⭐' : '';
@@ -55,6 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         // Call the function with the number of reviews and the first reviewer's name
         showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
-        populateUser(you.isReturning, you.userName);
+        populateUser(you.isReturning, you.firstName);
     })();
 });

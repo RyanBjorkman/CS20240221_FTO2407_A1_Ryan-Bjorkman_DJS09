@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const returningUserDisplay = document.querySelector('#returning-user')
     const userNameDisplay = document.querySelector('#user')
 
+    let isOpen : boolean
+
 
 const reviews = [
     {
@@ -30,9 +32,16 @@ const reviews = [
     },
 ];
 
-const you = {
-    userName: 'Bobby',
+const you: {
+    firstName: string,
+    lastName: string,
+    isReturning: boolean,
+    age: number,
+} = {
+    firstName: 'James',
+    lastName: 'Franco',
     isReturning: true,
+    age: 33,
 };
 
 function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
@@ -62,7 +71,7 @@ function populateUser(isReturning: boolean, userName: string) {
 
 // Call the function with the number of reviews and the first reviewer's name
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
-populateUser(you.isReturning, you.userName);
+populateUser(you.isReturning, you.firstName);
 })();
 
 

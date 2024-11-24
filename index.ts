@@ -63,7 +63,7 @@ const properties: {
         postalCode: string,
         country: string,
     },
-    contactDetails: string,
+    contactDetails: [number, string],
     isAvailable: boolean,
 } [] = [
     {
@@ -76,7 +76,7 @@ const properties: {
             postalCode: '33139',
             country: 'USA',
         },
-        contactDetails: 'info@beachbungalow.com',
+        contactDetails: [ +1123495082908, 'info@beachbungalow.com'],
         isAvailable: true,
     },
     {
@@ -89,7 +89,7 @@ const properties: {
             postalCode: '81611',
             country: 'USA',
         },
-        contactDetails: 'contact@mountaincabin.com',
+        contactDetails: [ +1123495082908, 'contact@mountaincabin.com'],
         isAvailable: false,
     },
     {
@@ -102,7 +102,7 @@ const properties: {
             postalCode: '10001',
             country: 'USA',
         },
-        contactDetails: 'rent@cityapartment.com',
+        contactDetails: [ +1123495082908, 'rent@cityapartment.com'],
         isAvailable: true,
     },
 ];

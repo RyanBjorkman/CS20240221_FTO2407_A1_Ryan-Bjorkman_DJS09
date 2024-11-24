@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     postalCode: '33139',
                     country: 'USA',
                 },
-                contactDetails: 'info@beachbungalow.com',
+                contactDetails: [+1123495082908, 'info@beachbungalow.com'],
                 isAvailable: true,
             },
             {
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     postalCode: '81611',
                     country: 'USA',
                 },
-                contactDetails: 'contact@mountaincabin.com',
+                contactDetails: [+1123495082908, 'contact@mountaincabin.com'],
                 isAvailable: false,
             },
             {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     postalCode: '10001',
                     country: 'USA',
                 },
-                contactDetails: 'rent@cityapartment.com',
+                contactDetails: [+1123495082908, 'rent@cityapartment.com'],
                 isAvailable: true,
             },
         ];

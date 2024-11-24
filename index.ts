@@ -2,7 +2,12 @@
 // Write a function that will only accept numbers and attend to 
 // all TypeScript weakness flags.
 // : number
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    
 (function () {
     const reviewTotalDisplay = document.querySelector('#reviews')
     const returningUserDisplay = document.querySelector('#returning-user')
@@ -76,17 +81,20 @@ const you = {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
 
+// type Alias
+type Price = 45 | 30 | 25
+type Country = 'Usa' | 'Japan' | 'South Africa'
 
 // Array of property objects
 const properties: {
     image: string,
     title: string,
-    pricePerNight: number,
+    pricePerNight: Price,
     location: {
         addressLine1: string,
         city: string,
         postalCode: string,
-        country: string,
+        country: 'USA' | 'Japan' | 'South Africa',
     },
     contactDetails: [number, string],
     isAvailable: boolean,
@@ -94,7 +102,7 @@ const properties: {
     {
         image: 'images/property1.jpg',
         title: 'Beachfront Villa',
-        pricePerNight: 50,
+        pricePerNight: 45,
         location: {
             addressLine1: '123 Ocean Drive',
             city: 'Miami',
@@ -107,12 +115,12 @@ const properties: {
     {
         image: 'images/property2.jpg',
         title: 'Mountain Cabin',
-        pricePerNight: 75,
+        pricePerNight: 25,
         location: {
             addressLine1: '456 Alpine Trail',
             city: 'Aspen',
             postalCode: '81611',
-            country: 'USA',
+            country: 'Japan',
         },
         contactDetails: [ +1123495082908, 'contact@mountaincabin.com'],
         isAvailable: false,
@@ -120,12 +128,12 @@ const properties: {
     {
         image: 'images/property3.jpg',
         title: 'City Apartment',
-        pricePerNight: 60,
+        pricePerNight: 30,
         location: {
             addressLine1: '789 Urban Street',
             city: 'New York',
             postalCode: '10001',
-            country: 'USA',
+            country: 'South Africa',
         },
         contactDetails: [ +1123495082908, 'rent@cityapartment.com'],
         isAvailable: true,
@@ -137,8 +145,7 @@ function showReviewTotal(value: number, reviewer: string, isLoyalty: LoyaltyUser
     const iconDisplay = isLoyalty === LoyaltyUser.GOLD_USER ?  '⭐' : '';
     if (reviewTotalDisplay) {
         // combine values into a string
-        reviewTotalDisplay.innerHTML = 
-            'Review total: ' + value.toString() + ', first reviewed by: ' + reviewer + ' ' + iconDisplay;
+        reviewTotalDisplay.innerHTML = value.toString() + ' ' + 'Review' + makeMultiple(value) + ' first reviewed by: ' + reviewer + ' ' + iconDisplay;
     } else {
         console.error('No element found');
     }
@@ -195,6 +202,12 @@ if (footer) {
     footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°C';
 } else {
     console.error('No element found');
+}
+
+function makeMultiple(value: number) : string {
+    if (value > 1 || value == 0 ) {
+        return 's'
+    } else return ''
 }
 
 

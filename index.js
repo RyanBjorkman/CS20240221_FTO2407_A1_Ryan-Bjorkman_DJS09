@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
             {
                 image: 'images/property1.jpg',
                 title: 'Beachfront Villa',
-                pricePerNight: 50,
+                pricePerNight: 45,
                 location: {
                     addressLine1: '123 Ocean Drive',
                     city: 'Miami',
@@ -84,12 +84,12 @@ document.addEventListener('DOMContentLoaded', function () {
             {
                 image: 'images/property2.jpg',
                 title: 'Mountain Cabin',
-                pricePerNight: 75,
+                pricePerNight: 25,
                 location: {
                     addressLine1: '456 Alpine Trail',
                     city: 'Aspen',
                     postalCode: '81611',
-                    country: 'USA',
+                    country: 'Japan',
                 },
                 contactDetails: [+1123495082908, 'contact@mountaincabin.com'],
                 isAvailable: false,
@@ -97,12 +97,12 @@ document.addEventListener('DOMContentLoaded', function () {
             {
                 image: 'images/property3.jpg',
                 title: 'City Apartment',
-                pricePerNight: 60,
+                pricePerNight: 30,
                 location: {
                     addressLine1: '789 Urban Street',
                     city: 'New York',
                     postalCode: '10001',
-                    country: 'USA',
+                    country: 'South Africa',
                 },
                 contactDetails: [+1123495082908, 'rent@cityapartment.com'],
                 isAvailable: true,
@@ -112,8 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var iconDisplay = isLoyalty === LoyaltyUser.GOLD_USER ? '⭐' : '';
             if (reviewTotalDisplay) {
                 // combine values into a string
-                reviewTotalDisplay.innerHTML =
-                    'Review total: ' + value.toString() + ', first reviewed by: ' + reviewer + ' ' + iconDisplay;
+                reviewTotalDisplay.innerHTML = value.toString() + ' ' + 'Review' + makeMultiple(value) + ' first reviewed by: ' + reviewer + ' ' + iconDisplay;
             }
             else {
                 console.error('No element found');
@@ -164,6 +163,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         else {
             console.error('No element found');
+        }
+        function makeMultiple(value) {
+            if (value > 1 || value == 0) {
+                return 's';
+            }
+            else
+                return '';
         }
     })();
 });

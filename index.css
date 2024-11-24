@@ -61,3 +61,14 @@ body {
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
+
+.footer {
+    width: 100%;
+    background-color: lightcoral;
+    position:absolute;
+    bottom:0;
+    text-align: center;
+    padding: 30px;
+    color: white;
+}

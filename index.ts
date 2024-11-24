@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const returningUserDisplay = document.querySelector('#returning-user')
     const userNameDisplay = document.querySelector('#user')
     const propertyContainer = document.querySelector('.properties')
+    const footer = document.querySelector('.footer');
 
     let isOpen : boolean
 
@@ -148,6 +149,13 @@ if (propertyContainer) {
     card.appendChild(image);
     propertyContainer.appendChild(card);
 }
+} else {
+    console.error('No element found');
+}
+
+let currentLocation: [string, string, number] = ['Stellenbosch', '13:06', 31]
+if (footer) {
+    footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°C';
 } else {
     console.error('No element found');
 }

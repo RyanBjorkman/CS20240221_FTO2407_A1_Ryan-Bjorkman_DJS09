@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var returningUserDisplay = document.querySelector('#returning-user');
         var userNameDisplay = document.querySelector('#user');
         var propertyContainer = document.querySelector('.properties');
+        var footer = document.querySelector('.footer');
         var isOpen;
         var reviews = [
             {
@@ -114,6 +115,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 card.appendChild(image);
                 propertyContainer.appendChild(card);
             }
+        }
+        else {
+            console.error('No element found');
+        }
+        var currentLocation = ['Stellenbosch', '13:06', 31];
+        if (footer) {
+            footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°C';
         }
         else {
             console.error('No element found');

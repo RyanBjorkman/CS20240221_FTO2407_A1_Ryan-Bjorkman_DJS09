@@ -2,7 +2,7 @@
 // Write a function that will only accept numbers and attend to 
 // all TypeScript weakness flags.
 // : number
-
+document.addEventListener('DOMContentLoaded', () => {
 (function () {
     const reviewTotalDisplay = document.querySelector('#reviews')
 
@@ -27,13 +27,19 @@ const reviews = [
     },
 ]
 
-function showReviewTotal (value : number) {
+function showReviewTotal(value: number, reviewer: string) {
     if (reviewTotalDisplay) {
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString()
+        // combine values into a string
+        reviewTotalDisplay.innerHTML = 
+            'Review total: ' + value.toString() + ', first reviewed by: ' + reviewer;
     } else {
-        console.log('No element found')
+        console.error('No element found');
     }
 }
 
-showReviewTotal(reviews.length)
-})()
+// Call the function with the number of reviews and the first reviewer's name
+showReviewTotal(reviews.length, reviews[0].name);
+})();
+
+});
+

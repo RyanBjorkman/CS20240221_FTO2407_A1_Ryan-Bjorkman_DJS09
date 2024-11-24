@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             lastName: 'Franco',
             isReturning: true,
             age: 33,
+            stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
         };
         function showReviewTotal(value, reviewer, isLoyalty) {
             var iconDisplay = isLoyalty ? '⭐' : '';

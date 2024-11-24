@@ -37,11 +37,13 @@ const you: {
     lastName: string,
     isReturning: boolean,
     age: number,
+    stayedAt: string[];
 } = {
     firstName: 'James',
     lastName: 'Franco',
     isReturning: true,
     age: 33,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
 
 function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {

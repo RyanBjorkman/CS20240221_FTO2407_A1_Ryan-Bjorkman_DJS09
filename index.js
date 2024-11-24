@@ -5,6 +5,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     (function () {
         var reviewTotalDisplay = document.querySelector('#reviews');
+        var returningUserDisplay = document.querySelector('#returning-user');
+        var userNameDisplay = document.querySelector('#user');
         var reviews = [
             {
                 name: 'Sheia',
@@ -25,6 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 date: '27-03-2021'
             },
         ];
+        var you = {
+            userName: 'Bobby',
+            isReturning: true,
+        };
         function showReviewTotal(value, reviewer, isLoyalty) {
             var iconDisplay = isLoyalty ? '⭐' : '';
             if (reviewTotalDisplay) {
@@ -36,7 +42,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('No element found');
             }
         }
+        // function to populate the user welcome back message
+        function populateUser(isReturning, userName) {
+            if (returningUserDisplay) {
+                if (isReturning) {
+                    returningUserDisplay.innerHTML = 'back';
+                }
+            }
+            if (userNameDisplay) {
+                userNameDisplay.innerHTML = userName;
+            }
+        }
         // Call the function with the number of reviews and the first reviewer's name
         showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+        populateUser(you.isReturning, you.userName);
     })();
 });

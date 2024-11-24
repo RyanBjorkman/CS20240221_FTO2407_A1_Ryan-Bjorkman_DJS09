@@ -5,6 +5,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 (function () {
     const reviewTotalDisplay = document.querySelector('#reviews')
+    const returningUserDisplay = document.querySelector('#returning-user')
+    const userNameDisplay = document.querySelector('#user')
+
 
 const reviews = [
     {
@@ -25,7 +28,12 @@ const reviews = [
         loyaltyUser: true,
         date: '27-03-2021'
     },
-]
+];
+
+const you = {
+    userName: 'Bobby',
+    isReturning: true,
+};
 
 function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
     const iconDisplay = isLoyalty ? '⭐' : ''
@@ -38,9 +46,25 @@ function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
     }
 }
 
+// function to populate the user welcome back message
+function populateUser(isReturning: boolean, userName: string) {
+    if (returningUserDisplay) {
+        if (isReturning) {
+            returningUserDisplay.innerHTML = 'back';
+        }
+    }
+    if (userNameDisplay) {
+        userNameDisplay.innerHTML = userName;
+    }
+}
+
+
+
 // Call the function with the number of reviews and the first reviewer's name
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+populateUser(you.isReturning, you.userName);
 })();
+
 
 });
 

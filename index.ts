@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const propertyContainer = document.querySelector('.properties')
     const footer = document.querySelector('.footer');
 
+    let isLoggedIn : boolean
+
     let isOpen : boolean
 
     enum LoyaltyUser {
@@ -19,12 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-const reviews : {
-    name: string,
-    stars: number,
-    loyaltyUser: LoyaltyUser,
-    date: string,
-} [] = [
+    const reviews : any[]= [
     {
         name: 'Sheia',
         stars: 5,
@@ -41,7 +38,8 @@ const reviews : {
         name: 'Omar',
         stars: 4,
         loyaltyUser: LoyaltyUser.BRONZE_USER,
-        date: '27-03-2021'
+        date: '27-03-2021',
+        description: 'Great place to stay'
     },
 ];
 
@@ -164,6 +162,18 @@ function populateUser(isReturning: boolean, userName: string) {
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
 
+let authorityStatus : any
+
+isLoggedIn = true
+
+function showDetails(authorityStatus: boolean | Permissions, element : HTMLDivElement, price: number) {
+   if (authorityStatus) {
+       const priceDisplay = document.createElement('div')
+       priceDisplay.innerHTML = price.toString() + '/night'
+       element.appendChild(priceDisplay)
+   }
+}
+
 //Add the properties to the page
 if (propertyContainer) {
     for (let i = 0; i < properties.length; i++) {
@@ -174,6 +184,7 @@ if (propertyContainer) {
     image.setAttribute('src', properties[i].image);
     card.appendChild(image);
     propertyContainer.appendChild(card);
+    showDetails(isLoggedIn, card, properties[i].pricePerNight);
 }
 } else {
     console.error('No element found');
@@ -193,3 +204,21 @@ if (footer) {
 
 });
 
+// function add(firstValue : (number | string), secondValue: (number | string)) {
+//     let result
+//     if (typeof firstValue === 'number' && typeof secondValue === 'number') {
+//         result = firstValue + secondValue
+//     }
+//     if (typeof firstValue === 'string' && typeof secondValue === 'string') {
+//         result = firstValue + ' ' + secondValue
+//     }
+//     if (typeof firstValue === 'number' && typeof secondValue === 'string') {
+//         console.log('cannot perform this addition')
+//     }
+//     if (typeof firstValue === 'string' && typeof secondValue === 'number') {
+//         console.log('cannot perform this addition')
+//     }
+// }
+
+// const combinedReviews = add(5,1)
+// const firstNameLastName = add('Ania', 'Kubow')

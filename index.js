@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var userNameDisplay = document.querySelector('#user');
         var propertyContainer = document.querySelector('.properties');
         var footer = document.querySelector('.footer');
+        var isLoggedIn;
         var isOpen;
         var LoyaltyUser;
         (function (LoyaltyUser) {
@@ -33,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 name: 'Omar',
                 stars: 4,
                 loyaltyUser: LoyaltyUser.BRONZE_USER,
-                date: '27-03-2021'
+                date: '27-03-2021',
+                description: 'Great place to stay'
             },
         ];
         // const you: {
@@ -131,6 +133,15 @@ document.addEventListener('DOMContentLoaded', function () {
         // Call the function with the number of reviews and the first reviewer's name
         showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
         populateUser(you.isReturning, you.firstName);
+        var authorityStatus;
+        isLoggedIn = true;
+        function showDetails(authorityStatus, element, price) {
+            if (authorityStatus) {
+                var priceDisplay = document.createElement('div');
+                priceDisplay.innerHTML = price.toString() + '/night';
+                element.appendChild(priceDisplay);
+            }
+        }
         //Add the properties to the page
         if (propertyContainer) {
             for (var i = 0; i < properties.length; i++) {
@@ -141,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 image.setAttribute('src', properties[i].image);
                 card.appendChild(image);
                 propertyContainer.appendChild(card);
+                showDetails(isLoggedIn, card, properties[i].pricePerNight);
             }
         }
         else {
@@ -155,3 +167,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })();
 });
+// function add(firstValue : (number | string), secondValue: (number | string)) {
+//     let result
+//     if (typeof firstValue === 'number' && typeof secondValue === 'number') {
+//         result = firstValue + secondValue
+//     }
+//     if (typeof firstValue === 'string' && typeof secondValue === 'string') {
+//         result = firstValue + ' ' + secondValue
+//     }
+//     if (typeof firstValue === 'number' && typeof secondValue === 'string') {
+//         console.log('cannot perform this addition')
+//     }
+//     if (typeof firstValue === 'string' && typeof secondValue === 'number') {
+//         console.log('cannot perform this addition')
+//     }
+// }
+// const combinedReviews = add(5,1)
+// const firstNameLastName = add('Ania', 'Kubow')

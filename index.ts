@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const reviewTotalDisplay = document.querySelector('#reviews')
     const returningUserDisplay = document.querySelector('#returning-user')
     const userNameDisplay = document.querySelector('#user')
+    const propertyContainer = document.querySelector('.properties')
 
     let isOpen : boolean
 
@@ -66,8 +67,8 @@ const properties: {
     isAvailable: boolean,
 } [] = [
     {
-        image: 'property1.jpg',
-        title: 'Beachfront Bungalow',
+        image: 'images/property1.jpg',
+        title: 'Beachfront Villa',
         pricePerNight: 50,
         location: {
             addressLine1: '123 Ocean Drive',
@@ -79,7 +80,7 @@ const properties: {
         isAvailable: true,
     },
     {
-        image: 'property2.jpg',
+        image: 'images/property2.jpg',
         title: 'Mountain Cabin',
         pricePerNight: 75,
         location: {
@@ -92,7 +93,7 @@ const properties: {
         isAvailable: false,
     },
     {
-        image: 'property3.jpg',
+        image: 'images/property3.jpg',
         title: 'City Apartment',
         pricePerNight: 60,
         location: {
@@ -135,6 +136,24 @@ function populateUser(isReturning: boolean, userName: string) {
 // Call the function with the number of reviews and the first reviewer's name
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
+
+//Add the properties to the page
+if (propertyContainer) {
+    for (let i = 0; i < properties.length; i++) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML =  properties[i].title
+    const image = document.createElement('img');
+    image.setAttribute('src', properties[i].image);
+    card.appendChild(image);
+    propertyContainer.appendChild(card);
+}
+} else {
+    console.error('No element found');
+}
+
+
+
 })();
 
 

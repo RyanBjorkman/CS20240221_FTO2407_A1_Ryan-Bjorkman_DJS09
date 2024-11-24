@@ -5,10 +5,13 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
     color: darkgrey;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     margin: 20px;
+    text-align: center;
 }
 
 .nav-bar {

@@ -10,23 +10,29 @@ document.addEventListener('DOMContentLoaded', function () {
         var propertyContainer = document.querySelector('.properties');
         var footer = document.querySelector('.footer');
         var isOpen;
+        var LoyaltyUser;
+        (function (LoyaltyUser) {
+            LoyaltyUser[LoyaltyUser["GOLD_USER"] = 0] = "GOLD_USER";
+            LoyaltyUser[LoyaltyUser["SILVER_USER"] = 1] = "SILVER_USER";
+            LoyaltyUser[LoyaltyUser["BRONZE_USER"] = 2] = "BRONZE_USER";
+        })(LoyaltyUser || (LoyaltyUser = {}));
         var reviews = [
             {
                 name: 'Sheia',
                 stars: 5,
-                loyaltyUser: true,
+                loyaltyUser: LoyaltyUser.GOLD_USER,
                 date: '01-04-2021'
             },
             {
                 name: 'Andrzej',
                 stars: 3,
-                loyaltyUser: false,
+                loyaltyUser: LoyaltyUser.BRONZE_USER,
                 date: '28-03-2021'
             },
             {
                 name: 'Omar',
                 stars: 4,
-                loyaltyUser: true,
+                loyaltyUser: LoyaltyUser.BRONZE_USER,
                 date: '27-03-2021'
             },
         ];
@@ -101,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
         ];
         function showReviewTotal(value, reviewer, isLoyalty) {
-            var iconDisplay = isLoyalty ? '⭐' : '';
+            var iconDisplay = isLoyalty === LoyaltyUser.GOLD_USER ? '⭐' : '';
             if (reviewTotalDisplay) {
                 // combine values into a string
                 reviewTotalDisplay.innerHTML =

@@ -30,9 +30,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 date: '27-03-2021'
             },
         ];
+        // const you: {
+        //     firstName: string,
+        //     lastName: string,
+        //     isReturning: boolean,
+        //     age: number,
+        //     stayedAt: string[];
+        // } = {
+        //     firstName: 'James',
+        //     lastName: 'Franco',
+        //     isReturning: true,
+        //     age: 33,
+        //     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
+        // };
+        var ADMIN = 'admin';
+        var READ_ONLY = 'read-only';
+        var Permissions;
+        (function (Permissions) {
+            Permissions[Permissions["ADMIN"] = 0] = "ADMIN";
+            Permissions[Permissions["READ_ONLY"] = 1] = "READ_ONLY";
+        })(Permissions || (Permissions = {}));
         var you = {
             firstName: 'James',
             lastName: 'Franco',
+            permissions: Permissions.ADMIN,
             isReturning: true,
             age: 33,
             stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']

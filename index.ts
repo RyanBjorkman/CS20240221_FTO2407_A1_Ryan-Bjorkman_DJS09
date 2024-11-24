@@ -39,19 +39,39 @@ const reviews : {
     },
 ];
 
-const you: {
-    firstName: string,
-    lastName: string,
-    isReturning: boolean,
-    age: number,
-    stayedAt: string[];
-} = {
+// const you: {
+//     firstName: string,
+//     lastName: string,
+//     isReturning: boolean,
+//     age: number,
+//     stayedAt: string[];
+// } = {
+//     firstName: 'James',
+//     lastName: 'Franco',
+//     isReturning: true,
+//     age: 33,
+//     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
+// };
+
+const ADMIN = 'admin'
+const READ_ONLY = 'read-only'
+
+
+enum Permissions {
+    ADMIN,
+    READ_ONLY
+}
+
+
+const you = {
     firstName: 'James',
     lastName: 'Franco',
+    permissions: Permissions.ADMIN,
     isReturning: true,
     age: 33,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
+
 
 // Array of property objects
 const properties: {

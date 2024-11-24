@@ -27,18 +27,19 @@ const reviews = [
     },
 ]
 
-function showReviewTotal(value: number, reviewer: string) {
+function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
+    const iconDisplay = isLoyalty ? '⭐' : ''
     if (reviewTotalDisplay) {
         // combine values into a string
         reviewTotalDisplay.innerHTML = 
-            'Review total: ' + value.toString() + ', first reviewed by: ' + reviewer;
+            'Review total: ' + value.toString() + ', first reviewed by: ' + reviewer + ' ' + iconDisplay;
     } else {
         console.error('No element found');
     }
 }
 
 // Call the function with the number of reviews and the first reviewer's name
-showReviewTotal(reviews.length, reviews[0].name);
+showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 })();
 
 });

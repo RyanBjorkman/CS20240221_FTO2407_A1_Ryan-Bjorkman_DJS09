@@ -51,6 +51,62 @@ const you: {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
 
+// Array of property objects
+const properties: {
+    image: string,
+    title: string,
+    pricePerNight: number,
+    location: {
+        addressLine1: string,
+        city: string,
+        postalCode: string,
+        country: string,
+    },
+    contactDetails: string,
+    isAvailable: boolean,
+} [] = [
+    {
+        image: 'property1.jpg',
+        title: 'Beachfront Bungalow',
+        pricePerNight: 50,
+        location: {
+            addressLine1: '123 Ocean Drive',
+            city: 'Miami',
+            postalCode: '33139',
+            country: 'USA',
+        },
+        contactDetails: 'info@beachbungalow.com',
+        isAvailable: true,
+    },
+    {
+        image: 'property2.jpg',
+        title: 'Mountain Cabin',
+        pricePerNight: 75,
+        location: {
+            addressLine1: '456 Alpine Trail',
+            city: 'Aspen',
+            postalCode: '81611',
+            country: 'USA',
+        },
+        contactDetails: 'contact@mountaincabin.com',
+        isAvailable: false,
+    },
+    {
+        image: 'property3.jpg',
+        title: 'City Apartment',
+        pricePerNight: 60,
+        location: {
+            addressLine1: '789 Urban Street',
+            city: 'New York',
+            postalCode: '10001',
+            country: 'USA',
+        },
+        contactDetails: 'rent@cityapartment.com',
+        isAvailable: true,
+    },
+];
+
+
 function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
     const iconDisplay = isLoyalty ? '⭐' : ''
     if (reviewTotalDisplay) {
